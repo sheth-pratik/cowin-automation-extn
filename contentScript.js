@@ -115,13 +115,10 @@ const repFun = () => {
                     }, 500);
                 }, 500);
             } else {
-                $("[formcontrolname=pincode]").val(pincode);
-                $("[formcontrolname=pincode]").on('input', (e) => {
-                    if (e.target.value.length === 6) {
-                        searchSlot();
-                    }
-                })
-
+                $("[formcontrolname=pincode]").val(first_5_pin_digits);
+                $("input[formcontrolname='pincode']")[0].dispatchEvent(new Event("input", {
+                    bubbles: true
+                }));
             }
 
         });
